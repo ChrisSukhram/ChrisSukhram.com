@@ -1,0 +1,145 @@
+<html>
+
+<head>
+  <!-- Normalize HTML5 Reset -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,100|Montserrat:400,700" rel="stylesheet">
+</head>
+
+<body>
+  <div id="navbar">
+    <div class="wrapper">
+        <h2>ChrisSukhram</h2>
+        <ul class="rightnav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Work</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+    </div>
+  </div>
+
+  <div id="header">
+    <div class="wrapper">
+      <!-- NAVIGATION -->
+      <div id="nav">
+        <h2>Chris Sukhram</h2>
+        <ul class="rightnav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Work</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Main Header -->
+      <div class="main">
+        <h1>Developer & Designer</h1>
+        <h2>I can turn your <b>ideas</b> into <b>code.</b>
+            </div>
+      </div>
+      <div class="header-arrow">
+        <div class="arrow-box">
+          <div class="arrow-down"></div>
+        </div>
+      </div>
+    </div>
+        <!-- About section -->
+        <div id="about">
+          <div class="wrapper">
+              <h1 class="title-dark">About Me</h1>
+              <p>As a self-taught programmer, whom went on to get a formal education
+                 in Computer Science, I enjoy constantly learning just as much as building apps.
+                  This paired with my entreprenial spirit is where I find my passion for designing
+                   and developing great products.</p>
+          </div>
+        </div>
+
+<div id="services">
+    <div class="wrapper">
+      <!-- iOS App Development Section -->
+      <div class="half-section">
+          <img src="./images/iphone-image.png"></img>
+          <h2 class="title-light">iOS App Development</h2>
+          <p>I have experience developing apps ranging from photo/video apps, games to fully functional social networks.</p>
+      </div>
+      <!-- Web Dev Section -->
+      <div class="half-section">
+        <img src="./images/webdev-image.png"></img>
+        <h2 class="title-light">Web Development</h2>
+        <p> From app landing pages, portfolios to small business web sites I can help convert your idea into high quality code.</p>
+      </div>
+    </div>
+</div>
+
+<div id="work">
+    <div class="wrapper">
+        <h1 class="title-dark">My Work</h1>
+        <div class="project">
+          <img src="./images/picgrid-mock.png"></img>
+          <h2>PicGrid Animated</h2>
+        </div>
+        <div class="project">
+          <img src="./images/ckstextapp-mock.jpg"></img>
+            <h2>CKSTextApp (WIP)</h2>
+        </div>
+
+        <!-- <div class="project">
+          <img src="../images/bollywood-mock.jpg"></img>
+            <h2>Bollywood Charades</h2>
+        </div> -->
+    </div>
+</div>
+
+<div id="footer">
+  <div class="wrapper">
+    <h1 class="title-dark">Need a developer?</h1>
+    <p>I'd be happy to work with you. Feel free to contact me with any requests, questions or just to say hello.</p>
+    <div class="social-bar">
+                <ul>
+                  <li>
+                  <a target="_blank" href="https://twitter.com/chrissukhram">
+                  <div class="rounded">
+                      <img src="./images/social-003_twitter.png"></img>
+                  </div>
+                </a>
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:chrissukhram@gmail.com">
+                  <div class="rounded">
+                      <img src="./images/social-067_gmail.png"></img>
+                  </div>
+                </a>
+                </li>
+                </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+  function scrollToSection(id) {
+    $('html, body').animate({
+      scrollTop: $(id).offset().top - 70
+    }, 1000);
+  }
+  $("#nav a, #navbar a").click(function(e){
+    e.preventDefault();
+    scrollToSection($(this).attr("href"));
+  });
+  $(".arrow-box").click(function(){
+    scrollToSection("#about");
+  });
+  $(window).scroll(function(){
+    if($(window).scrollTop() > 180) {
+      $('#navbar').fadeIn();
+    }
+
+    if($(window).scrollTop() < 181) {
+      $('#navbar').fadeOut("Fast");
+    }
+  })
+</script>
+
+</body>
+
+</html>
