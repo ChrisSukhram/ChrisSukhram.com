@@ -61,7 +61,6 @@ p {
 
 #navbar {
   display: none;
-  display: inline-block;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -127,6 +126,13 @@ p {
     padding: 0;
     width: 100%;
     height: auto; }
+
+.description {
+  position: absolute;
+  top: 50px;
+  background-color: rgba(54, 57, 59, 0.5);
+  padding: 0 1.0em 0 0.2em;
+  color: white; }
 
 #footer {
   height: 450px;
@@ -203,3 +209,40 @@ p {
   border-bottom: 2px solid white;
   transform: rotate(-45deg);
   margin: 0 auto; }
+
+@media only screen and (max-width: 900px) {
+  .wrapper {
+    max-width: 95%; }
+
+  #services {
+    padding: 0; }
+
+  #about {
+    padding-left: 0;
+    padding-right: 0; }
+
+  p {
+    text-align: center; } }
+@media only screen and (max-width: 710px) {
+  #services {
+    height: 600px; }
+
+  .half-section {
+    width: 100%;
+    margin-top: 30px; }
+
+  .project {
+    max-width: 95%; }
+
+  .rightnav {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center; }
+
+  #navbar h2, #nav h2 {
+    width: 100%;
+    text-align: center; }
+
+  #navbar {
+    overflow: hidden;
+    padding: 1.0em; } }
