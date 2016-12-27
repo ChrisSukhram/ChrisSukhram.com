@@ -4,6 +4,7 @@
   <!-- Normalize HTML5 Reset -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animate.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,100|Montserrat:400,700" rel="stylesheet">
 </head>
 
@@ -13,7 +14,7 @@
           <h2>ChrisSukhram</h2>
           <ul class="rightnav">
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Work</a></li>
+            <li><a href="#work">Work</a></li>
             <li><a href="#footer">Contact</a></li>
           </ul>
       </div>
@@ -26,14 +27,14 @@
           <h2>Chris Sukhram</h2>
           <ul class="rightnav">
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Work</a></li>
-            <li><a href="#footer">Contact</a></li>
+            <li><a href="#work">Work</a></li>
+            <li class="contact"><a href="#footer">Contact</a></li>
           </ul>
         </div>
         <!-- Main Header -->
         <div class="main">
           <h1>Developer & Designer</h1>
-          <h2>I can turn your <b>ideas</b> into <b>code.</b>
+          <h2>I can turn your <b class="title-dark">ideas</b> into <b class="title-dark">code.</b>
               </div>
         </div>
         <div class="header-arrow">
@@ -46,9 +47,9 @@
         <div id="about">
           <div class="wrapper">
               <h1 class="title-dark">About Me</h1>
-              <p>As a self-taught programmer, whom went on to get a formal education
+              <p>As a self-taught programmer, who went on to get a formal education
                  in Computer Science, I enjoy constantly learning just as much as building apps.
-                  This paired with my entreprenial spirit is where I find my passion for designing
+                  This paired with my entrepreneurial spirit is where I find my passion for designing
                    and developing great products.</p>
           </div>
         </div>
@@ -56,16 +57,16 @@
         <div id="services">
             <div class="wrapper">
               <!-- iOS App Development Section -->
-              <div class="half-section">
+              <div class="animated half-section">
                   <img src="./images/iphone-image.png"></img>
                   <h2 class="title-light">iOS App Development</h2>
-                  <p>I have experience developing apps ranging from photo/video apps, games to fully functional social networks.</p>
+                  <p>I have experience developing apps ranging from photo/video apps and games to fully functional social networks.</p>
               </div>
               <!-- Web Dev Section -->
-              <div class="half-section">
+              <div class="animated half-section">
                 <img src="./images/webdev-image.png"></img>
                 <h2 class="title-light">Web Development</h2>
-                <p> From app landing pages, portfolios to small business web sites I can help convert your idea into high quality code.</p>
+                <p> From app landing pages and portfolios to small business web sites I can help convert your idea into high quality code.</p>
               </div>
             </div>
         </div>
@@ -73,20 +74,20 @@
         <div id="work">
             <div class="wrapper">
                 <h1 class="title-dark">My Work</h1>
-                <div class="project">
+                <div class="animated project">
                   <img src="./images/picgrid-mock.png"></img>
                   <h2>PicGrid Animated</h2>
                   <p class="description">Objective-C</p>
                 </div>
-                <div class="project">
+                <div class="animated project">
                   <img src="./images/ckstextapp-mock.jpg"></img>
-                    <h2>CKSTextApp (WIP)</h2>
+                    <h2>Overlayr - Photo and Video Overlays</h2>
                     <p class="description">Swift</p>
                 </div>
-                <div class="project">
+                <div class="animated project">
                   <img src="./images/chrissukhram-portfolio.png"></img>
-                    <h2>ChrisSukhram.com</h2>
-                    <p class="description">HTML/CSS</p>
+                    <h2>ChrisSukhram.com - Portfolio website</h2>
+                    <p class="description">HTML/CSS/Javascript</p>
                 </div>
 
                 <!-- <div class="project">
@@ -100,24 +101,27 @@
           <div class="wrapper">
             <h1 class="title-dark">Need a developer?</h1>
             <p>I'd be happy to work with you. Feel free to contact me with any requests, questions or just to say hello.</p>
-            <div class="social-bar">
-                        <ul>
-                          <li>
-                          <a target="_blank" href="https://twitter.com/chrissukhram">
-                          <div class="rounded">
-                              <img src="./images/social-003_twitter.png"></img>
-                          </div>
-                        </a>
-                        </li>
-                        <li>
-                          <a target="_blank" href="mailto:chrissukhram@gmail.com">
-                          <div class="rounded">
-                              <img src="./images/social-067_gmail.png"></img>
-                          </div>
-                        </a>
-                        </li>
-                        </ul>
+
+            <div id="contact-form">
+              <form method="POST" action="http://formspree.io/chrissukhram+portfolio@gmail.com">
+                <input type="email" name="email" placeholder="Your email">
+                <textarea name="message" placeholder="Your message"></textarea>
+                <button type="submit">Send</button>
+              </form>
             </div>
+
+            <div class="social-bar">
+                <ul>
+                  <li>
+                  <a target="_blank" href="https://twitter.com/chrissukhram">
+                  <div class="rounded">
+                      <img src="./images/social-003_twitter.png"></img>
+                  </div>
+                </a>
+                </li>
+                </ul>
+            </div>
+
           </div>
         </div>
 
@@ -131,7 +135,8 @@
   }
   $("#nav a, #navbar a").click(function(e){
     e.preventDefault();
-    scrollToSection($(this).attr("href"));
+    var target = $(this).attr("href");
+    scrollToSection(target);
   });
   $(".arrow-box").click(function(){
     scrollToSection("#about");
@@ -145,6 +150,26 @@
       $('#navbar').fadeOut("Fast");
     }
   })
+</script>
+
+<script>
+    var $window = $(window).scroll(function() {
+      $('.half-section').each(function(){
+        var imagePos = $(this).offset().top;
+        var topWindow = $window.scrollTop();
+        if (imagePos < topWindow+(window.innerHeight)){
+          $(this).addClass("fadeInUp");
+        }
+      })
+      $('.project').each(function() {
+        var imagePos = $(this).offset().top;
+        var topWindow = $window.scrollTop();
+        if (imagePos < topWindow+(window.innerHeight)) {
+          console.log(window.innerHeight);
+          $(this).addClass("fadeInLeft");
+        }
+      });
+    });
 </script>
 
 </body>
